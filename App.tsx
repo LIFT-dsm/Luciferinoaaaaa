@@ -64,11 +64,7 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <Text>asdf</Text>
-    </SafeAreaView>
-  );
+  return <SafeAreaView style={backgroundStyle}></SafeAreaView>;
 }
 
 const styles = StyleSheet.create({
