@@ -1,6 +1,6 @@
 {
-  "root": "/Users/anseungmin/Desktop/Luciferinoah/distoma",
-  "reactNativePath": "/Users/anseungmin/Desktop/Luciferinoah/distoma/node_modules/react-native",
+  "root": "/Users/anseungmin/Desktop/Luciferinoaaaaa",
+  "reactNativePath": "/Users/anseungmin/Desktop/Luciferinoaaaaa/node_modules/react-native",
   "reactNativeVersion": "0.75",
   "dependencies": {},
   "commands": [
@@ -164,7 +164,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "/Users/anseungmin/Desktop/Luciferinoah/distoma"
+          "default": "/Users/anseungmin/Desktop/Luciferinoaaaaa"
         },
         {
           "name": "--platform <string>",
@@ -445,7 +445,7 @@
   "assets": [],
   "project": {
     "ios": {
-      "sourceDir": "/Users/anseungmin/Desktop/Luciferinoah/distoma/ios",
+      "sourceDir": "/Users/anseungmin/Desktop/Luciferinoaaaaa/ios",
       "xcodeProject": {
         "name": "distoma.xcworkspace",
         "path": ".",
@@ -454,7 +454,7 @@
       "assets": []
     },
     "android": {
-      "sourceDir": "/Users/anseungmin/Desktop/Luciferinoah/distoma/android",
+      "sourceDir": "/Users/anseungmin/Desktop/Luciferinoaaaaa/android",
       "appName": "app",
       "packageName": "com.distoma",
       "applicationId": "com.distoma",
