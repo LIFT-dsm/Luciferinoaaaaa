@@ -1,27 +1,32 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, useColorScheme } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  useColorScheme,
+  Text,
+  View,
+} from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import Login from "./pages/login";
-import Signin from "./pages/signin";
+// import Signin from "./pages/signin";
+
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
+    color: isDarkMode ? "#FFFFFF" : "#000000",
     flex: 1,
   };
 
   return (
-    <SafeAreaView style={[backgroundStyle, styles.container]}>
-      <Login />
-      {/* <Signin /> */}
+    <SafeAreaView style={backgroundStyle}>
+      <View>
+        <Login />
+        {/* <Signin /> */}
+      </View>
     </SafeAreaView>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
