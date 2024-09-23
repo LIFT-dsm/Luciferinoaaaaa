@@ -29,7 +29,7 @@ function Login(): React.JSX.Element {
   return (
     <SafeAreaView style={[backgroundStyle, styles.container]}>
       <View style={styles.imageContainer}>
-        <Image source={require("../assets/Logo.jpg")} style={styles.image} />
+        <Image source={require("../assets/Logo.png")} style={styles.image} />
       </View>
       <View style={styles.midMargin}></View>
       <View style={styles.textContainer}>
