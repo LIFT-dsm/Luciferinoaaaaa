@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
   },
   image: {
     marginTop: 80,
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
   },
   textStyle: {
     fontSize: 18,
