@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   midMargin: {
-    marginTop: 50,
+    marginTop: 60,
   },
   button: {
     width: "80%",
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom: 170,
+    marginBottom: 230,
   },
   buttonText: {
     color: "white",
