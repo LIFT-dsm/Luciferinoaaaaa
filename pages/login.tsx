@@ -16,7 +16,6 @@ function Login(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
 
   const backgroundStyle = {
-    // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
     backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
     flex: 1,
   };
