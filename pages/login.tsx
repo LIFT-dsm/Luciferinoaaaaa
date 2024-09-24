@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   loginInput: {
-    width: "80%",
+    width: "90%",
     height: 48,
     borderColor: "#757575",
     borderRadius: 25,
