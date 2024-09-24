@@ -14,7 +14,7 @@ import { launchImageLibrary } from "react-native-image-picker";
 
 function Signup(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
@@ -39,7 +39,12 @@ function Signup(): React.JSX.Element {
         } else if (response.errorMessage) {
           console.log("에러: ", response.errorMessage);
         } else if (response.assets && response.assets.length > 0) {
-          setSelectedImage(response.assets[0].uri);
+          const imageUri = response.assets[0].uri;
+          if (typeof imageUri === "string") {
+            setSelectedImage(imageUri);
+          } else {
+            console.error("URI가 유효하지 않습니다.");
+          }
         }
       }
     );
@@ -86,19 +91,17 @@ function Signup(): React.JSX.Element {
       <View style={styles.formContainer}>
         <Text style={styles.textStyle}>회원가입</Text>
         <View style={styles.inputContainer}>
-          <TextInput placeholder="이름" style={styles.inputStyle}></TextInput>
-          <TextInput placeholder="성별" style={styles.inputStyle}></TextInput>
-          <TextInput
-            placeholder="사는 지역"
-            style={styles.inputStyle}
-          ></TextInput>
-          <TextInput placeholder="아이디" style={styles.inputStyle}></TextInput>
+          <TextInput placeholder="이름" style={styles.inputStyle} />
+          <TextInput placeholder="성별" style={styles.inputStyle} />
+          <TextInput placeholder="사는 지역" style={styles.inputStyle} />
+          <TextInput placeholder="아이디" style={styles.inputStyle} />
           <TextInput
             placeholder="비밀번호"
             style={styles.inputStyle}
-          ></TextInput>
+            secureTextEntry={true}
+          />
         </View>
-        <View style={styles.midMargin}></View>
+        <View style={styles.midMargin} />
         <TouchableOpacity style={styles.button} onPress={handleSignin}>
           <Text style={styles.buttonText}>회원가입</Text>
         </TouchableOpacity>
