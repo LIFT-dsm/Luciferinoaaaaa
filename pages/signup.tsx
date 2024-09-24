@@ -139,10 +139,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     marginVertical: 20,
-    marginRight: 270,
+    marginRight: 310,
   },
   inputStyle: {
-    width: "80%",
+    width: "90%",
     height: 48,
     borderColor: "#757575",
     borderRadius: 25,
