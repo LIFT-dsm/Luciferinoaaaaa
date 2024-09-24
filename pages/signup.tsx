@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { launchImageLibrary } from "react-native-image-picker";
 
-function Signin(): React.JSX.Element {
+function Signup(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -174,4 +174,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Signin;
+export default Signup;
