@@ -45,6 +45,7 @@ function Login(): React.JSX.Element {
           style={[styles.loginInput, styles.inputMargin]}
           placeholder="비밀번호"
           placeholderTextColor="#757575"
+          secureTextEntry={true}
         />
         <View style={styles.midMargin}></View>
         <TouchableOpacity style={styles.button} onPress={handleLogin}>
