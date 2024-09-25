@@ -7,16 +7,25 @@ import {
   TouchableOpacity,
   Image,
   useColorScheme,
+  Linking,
+  Platform,
 } from "react-native";
 
 function Setting(): React.JSX.Element {
-  // 시스템 다크모드 감지
   const isDarkMode = useColorScheme() === "dark";
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
     color: isDarkMode ? "#FFFFFF" : "#000000",
     flex: 1,
+  };
+
+  const openSettings = () => {
+    if (Platform.OS === "ios") {
+      Linking.openURL("App-Prefs:root=General");
+    } else if (Platform.OS === "android") {
+      Linking.openSettings();
+    }
   };
 
   return (
@@ -34,7 +43,7 @@ function Setting(): React.JSX.Element {
         <View style={styles.profileImage}></View>
       </View>
       <View style={styles.backGroundMode}>
-        <TouchableOpacity style={styles.darkModeButton}>
+        <TouchableOpacity style={styles.darkModeButton} onPress={openSettings}>
           <View style={styles.darkContainer}>
             <Image
               source={require("../assets/moon.png")}
@@ -43,7 +52,7 @@ function Setting(): React.JSX.Element {
             <Text style={styles.darkText}>dark{"\n"}mode</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.whiteModeButton}>
+        <TouchableOpacity style={styles.whiteModeButton} onPress={openSettings}>
           <View style={styles.whiteContainer}>
             <Image
               source={require("../assets/sun.png")}
