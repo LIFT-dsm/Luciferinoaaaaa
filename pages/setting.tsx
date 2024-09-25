@@ -120,6 +120,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#000000",
     borderRadius: 20,
     height: 250,
+    shadowColor: "#FFFFFF",
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 8, // 안드로이드용 그림자
+    marginRight: 5,
   },
   whiteModeButton: {
     width: "45%",
@@ -130,7 +136,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
-    elevation: 8,
+    elevation: 8, //안드로이드용 그림자
+    marginLeft: 5,
   },
   darkText: {
     color: "#FFFFFF",
