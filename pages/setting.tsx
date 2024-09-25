@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,10 +9,13 @@ import {
   useColorScheme,
   Linking,
   Platform,
+  Switch,
+  Alert,
 } from "react-native";
 
 function Setting(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
@@ -26,6 +29,14 @@ function Setting(): React.JSX.Element {
     } else if (Platform.OS === "android") {
       Linking.openSettings();
     }
+  };
+
+  const toggleSwitch = () => {
+    setIsEnabled((previousState) => {
+      const newState = !previousState;
+      Alert.alert("알림", newState ? "알림이 켜졌습니다" : "알림이 꺼졌습니다");
+      return newState;
+    });
   };
 
   return (
@@ -62,6 +73,49 @@ function Setting(): React.JSX.Element {
           </View>
         </TouchableOpacity>
       </View>
+      <TouchableOpacity style={[styles.buttons, styles.firstButton]}>
+        <Text style={[styles.buttonsText, { color: backgroundStyle.color }]}>
+          문제 신고
+        </Text>
+      </TouchableOpacity>
+      <View style={[styles.buttons, styles.secondButton, styles.noBorderTop]}>
+        <View style={styles.switchContainer}>
+          <Text style={[styles.buttonsText, { color: backgroundStyle.color }]}>
+            알림 설정
+          </Text>
+          <Switch
+            trackColor={{
+              false: isDarkMode ? "#757575" : "#FFFFFF",
+              true: isDarkMode ? "#757575" : "#000000",
+            }}
+            thumbColor={
+              isEnabled
+                ? isDarkMode
+                  ? "#FFFFFF"
+                  : "#FFFFFF"
+                : isDarkMode
+                ? "#000000"
+                : "#FFFFFF"
+            }
+            ios_backgroundColor="#FFFFFF"
+            onValueChange={toggleSwitch}
+            value={isEnabled}
+          />
+        </View>
+      </View>
+      <TouchableOpacity
+        style={[styles.buttons, styles.thirdButton, styles.noBorderTop]}
+      >
+        <Text style={[styles.buttonsText, { color: backgroundStyle.color }]}>
+          비밀번호 변경
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.bottomButton}>
+        <Text style={styles.bottomText}>로그아웃</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.bottomButton}>
+        <Text style={styles.bottomText}>회원탈퇴</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -83,12 +137,12 @@ const styles = StyleSheet.create({
     borderColor: "#EEEEEE",
     width: "90%",
     height: 100,
-    borderRadius: 8,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     paddingLeft: 10,
     paddingRight: 10,
+    borderRadius: 10,
   },
   textContainer: {
     flex: 1,
@@ -118,26 +172,26 @@ const styles = StyleSheet.create({
   darkModeButton: {
     width: "45%",
     backgroundColor: "#000000",
-    borderRadius: 20,
     height: 250,
     shadowColor: "#FFFFFF",
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
-    elevation: 8, // 안드로이드용 그림자
+    elevation: 8,
     marginRight: 5,
+    borderRadius: 20,
   },
   whiteModeButton: {
     width: "45%",
     backgroundColor: "#FFFFFF",
-    borderRadius: 20,
     height: 250,
     shadowColor: "#000000",
     shadowOffset: { width: 5, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
-    elevation: 8, //안드로이드용 그림자
+    elevation: 8,
     marginLeft: 5,
+    borderRadius: 20,
   },
   darkText: {
     color: "#FFFFFF",
@@ -165,6 +219,58 @@ const styles = StyleSheet.create({
   whiteContainer: {
     marginTop: 40,
     marginLeft: 30,
+  },
+  buttons: {
+    width: "90%",
+    height: 45,
+    borderWidth: 1,
+    borderColor: "#6B6B6B",
+    justifyContent: "center",
+    padding: 10,
+  },
+  noBorderTop: {
+    borderTopWidth: 0,
+  },
+  firstButton: {
+    marginTop: 35,
+    borderTopRightRadius: 8,
+    borderTopLeftRadius: 8,
+  },
+  secondButton: {
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+  },
+  thirdButton: {
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: 0,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+  },
+  buttonsText: {
+    fontSize: 20,
+    paddingLeft: 10,
+    fontWeight: "600",
+  },
+  switchContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  bottomButton: {
+    marginTop: 20,
+    width: "90%",
+    height: 45,
+    borderWidth: 1,
+    borderColor: "#6B6B6B",
+    justifyContent: "center",
+    borderRadius: 8,
+  },
+  bottomText: {
+    color: "#FF0000",
+    fontSize: 20,
+    fontWeight: "600",
+    paddingLeft: 18,
   },
 });
 
