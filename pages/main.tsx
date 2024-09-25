@@ -9,31 +9,40 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
-} from 'react-native'
+} from "react-native";
 
-import Box from "../components/Box"
+import Box from "../components/Box";
 
-export function Main(){
-  return(
+export function Main() {
+  return (
     <View style={styles.container}>
-      <Image source={require("../assets/WhiteCurver.png")} style={styles.cover}/>
+      <Image
+        source={require("../assets/WhiteCurver.png")}
+        style={styles.cover}
+      />
       <View style={styles.user}>
         <View>
           <Text style={styles.Bold}>nickname</Text>
           <Text style={styles.Medium}>sub nickname</Text>
         </View>
-        <Image source={require("../assets/Profile.png")} style={styles.profileImage}/>
+        <Image
+          source={require("../assets/Profile.png")}
+          style={styles.profileImage}
+        />
       </View>
       <View style={styles.inputContainer}>
-        <TextInput placeholder="search party name, code or area" style={styles.input}/>
-        <Image source={require("../assets/Search.png")} style={styles.search}/>
+        <TextInput
+          placeholder="search party name, code or area"
+          style={styles.input}
+        />
+        <Image source={require("../assets/Search.png")} style={styles.search} />
       </View>
       <View style={styles.boxMargin}>
         <Text style={styles.Bold}>Join Party List</Text>
-        <Box/>
-        <Box/>
-        <Box/>
-        <Box/>
+        <Box />
+        <Box />
+        <Box />
+        <Box />
       </View>
     </View>
   );
@@ -41,58 +50,60 @@ export function Main(){
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
+    backgroundColor: "#ffffff",
+    alignItems: "center",
   },
   cover: {
-    width: '100%',
+    width: "100%",
     height: 140,
   },
   user: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    flexDirection: "row",
+    justifyContent: "center",
   },
   Bold: {
     fontSize: 22,
-    fontWeight: '700',
-    color: '#000000',
+    fontWeight: "700",
+    color: "#000000",
   },
   Medium: {
     fontSize: 12,
-    fontWeight: '500',
-    color: '#737373',
+    fontWeight: "500",
+    color: "#737373",
   },
   profileImage: {
     width: 50,
     height: 50,
     borderRadius: 24.5,
     borderWidth: 0.5,
-    borderColor: '#000000',
-    marginLeft: '50%'
+    borderColor: "#000000",
+    marginLeft: "50%",
   },
   inputContainer: {
-    width: '90%',
-    position: 'relative',
+    width: "90%",
+    position: "relative",
   },
   input: {
     marginTop: 10,
-    width: '100%',
+    width: "100%",
     height: 46,
     borderWidth: 1,
-    borderColor: '#000000',
+    borderColor: "#000000",
     borderRadius: 30,
     paddingHorizontal: 45,
   },
   search: {
-    position: 'absolute',
+    position: "absolute",
     top: 22,
     marginLeft: 15,
   },
   textcontainer: {
-    flexDirection: 'column',
+    flexDirection: "column",
   },
   boxMargin: {
     marginTop: "15%",
     gap: 10,
   },
-})
+});
+
+export default Main;
