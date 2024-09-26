@@ -1,17 +1,13 @@
 import React from "react";
 import {
   Image,
-  SafeAreaView,
   StyleSheet,
-  useColorScheme,
-  View,
   Text,
-  TextInput,
-  TouchableOpacity,
-  Alert,
+  View
 } from "react-native";
 
-import Box from "../components/Box";
+import Input from "../components/Input";
+import Box from "../components/PartyBox";
 
 export function Main() {
   return (
@@ -30,13 +26,7 @@ export function Main() {
           style={styles.profileImage}
         />
       </View>
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="search party name, code or area"
-          style={styles.input}
-        />
-        <Image source={require("../assets/Search.png")} style={styles.search} />
-      </View>
+      <Input/>
       <View style={styles.boxMargin}>
         <Text style={styles.Bold}>Join Party List</Text>
         <Box />
@@ -63,12 +53,12 @@ const styles = StyleSheet.create({
   },
   Bold: {
     fontSize: 22,
-    fontWeight: "700",
+    fontWeight: "bold",
     color: "#000000",
   },
   Medium: {
     fontSize: 12,
-    fontWeight: "500",
+    fontWeight: "medium",
     color: "#737373",
   },
   profileImage: {
@@ -78,24 +68,6 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: "#000000",
     marginLeft: "50%",
-  },
-  inputContainer: {
-    width: "90%",
-    position: "relative",
-  },
-  input: {
-    marginTop: 10,
-    width: "100%",
-    height: 46,
-    borderWidth: 1,
-    borderColor: "#000000",
-    borderRadius: 30,
-    paddingHorizontal: 45,
-  },
-  search: {
-    position: "absolute",
-    top: 22,
-    marginLeft: 15,
   },
   textcontainer: {
     flexDirection: "column",
