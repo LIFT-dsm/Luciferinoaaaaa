@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 8,
   },
   buttonsText: {
-    fontSize: 20,
+    fontSize: 17,
     paddingLeft: 10,
     fontWeight: "600",
   },
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
   },
   bottomText: {
     color: "#FF0000",
-    fontSize: 20,
+    fontSize: 17,
     fontWeight: "600",
     paddingLeft: 18,
   },
