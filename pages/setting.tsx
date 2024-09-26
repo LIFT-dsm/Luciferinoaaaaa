@@ -47,9 +47,9 @@ function Setting(): React.JSX.Element {
       <View style={styles.Profile}>
         <View style={styles.textContainer}>
           <Text style={[styles.nickName, { color: backgroundStyle.color }]}>
-            nickName
+            nickname
           </Text>
-          <Text style={styles.subNickName}>subNickName</Text>
+          <Text style={styles.subNickName}>subnickname</Text>
         </View>
         <View style={styles.profileImage}></View>
       </View>
