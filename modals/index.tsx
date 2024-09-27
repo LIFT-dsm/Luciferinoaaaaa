@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import { View, Modal, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import CheckBox from "@react-native-community/checkbox";
 
 function Modals(){
   const [modalVisible, setModalVisible] = useState(true);
@@ -14,7 +15,11 @@ function Modals(){
             <View style={styles.Textcontainer}>
               <Text style={styles.Bold25}>로그아웃하시겠습니까?</Text>
               <Text style={styles.Medium15}>메인 화면에서 다시 로그인할 수 있습니다</Text>
-              <View style={styles.check}><TouchableOpacity onPress={()=>setModalVisible(true)}><Image source={require("../assets/check.png")}/></TouchableOpacity></View>
+              <CheckBox
+                value={modalVisible}
+                onValueChange={setModalVisible}
+                tintColors={{ true: '#4CAF50', false: '#FF0000'}}
+              />
             </View>
             <View style={styles.ButtonContainer}>
               <TouchableOpacity onPress={()=>setModalVisible(true)} style={styles.buttonW}><Text style={styles.Medium18B}>No, cancel</Text></TouchableOpacity>
