@@ -8,7 +8,13 @@ import {
 } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import Login from "./pages/login";
-// import Signin from "./pages/signin";
+import Signup from "./pages/signup";
+import Setting from "./pages/setting";
+import Partyadd from "./pages/partyadd";
+import Main from "./pages/main";
+import Search from "./pages/search";
+import Alram from "./pages/alarm";
+import Modals from "./modals";
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === "dark";
@@ -20,12 +26,16 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View>
-        <Login />
-        {/* <Signin /> */}
-      </View>
-    </SafeAreaView>
+    <View style={backgroundStyle}>
+        {/* <Login /> */}
+        {/* <Signup /> */}
+        {/* <Setting/> */}
+        {/* <Partyadd/> */}
+        {/* <Main/> */}
+        {/* <Search/> */}
+        {/* <Alram/> */}
+        <Modals/>
+    </View>
   );
 }
 
