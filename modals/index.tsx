@@ -3,7 +3,7 @@ import { View, Modal, Text, StyleSheet, TouchableOpacity, TextInput, Image } fro
 import CheckBox from '@react-native-community/checkbox';
 
 interface ModalsProps {
-  type: 'partymake' | 'partydelete' | 'partyout' | 'out' | 'declaration';
+  type: 'partymake' | 'partydelete' | 'partyout' | 'out' | 'declaration' | null;
   partyName?: string;
   partyDate?: string;
   startTime?: string;
