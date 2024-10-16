@@ -1,11 +1,53 @@
-import React,{useState} from "react";
-import { View, Modal, Text, StyleSheet, TouchableOpacity, TextInput } from "react-native";
-import CheckBox from "@react-native-community/checkbox";
+import React, { useState } from 'react';
+import { View, Modal, Text, StyleSheet, TouchableOpacity, TextInput, Image } from 'react-native';
+import CheckBox from '@react-native-community/checkbox';
 
-function Modals(){
+interface ModalsProps {
+  type: 'partymake' | 'partydelete' | 'partyout' | 'out' | 'declaration';
+  partyName?: string;
+  partyDate?: string;
+  startTime?: string;
+  endTime?: string;
+  location?: string;
+  title?: string;
+  infoMessage?: string;
+}
+
+const Modals: React.FC<ModalsProps> = ({
+  type,
+  partyName = '',
+  partyDate = '',
+  startTime = '',
+  endTime = '',
+  location = '',
+  title = '제목',
+  infoMessage = '*내용',
+}) => {
   const [modalVisible, setModalVisible] = useState(true);
-  const [a,b] = useState(false)
-  return(
+  const [a, setA] = useState(false);
+
+  const renderTextWithAsterisk = (text: string) => {
+    const parts = text.split('*');
+    return (
+      <Text style={styles.Medium15}>
+        {parts.map((part, index) => (
+          <Text key={index}>
+            {part}
+            {index < parts.length - 1 && <Text style={{ color: 'red' }}>*</Text>}
+          </Text>
+        ))}
+      </Text>
+    );
+  };
+
+  const handleConfirm = () => {
+    if ((type === 'partyout' || type === 'out') && !a) {
+    } else {
+      setModalVisible(false);
+    }
+  };
+
+  return (
     <Modal
       visible={modalVisible}
       onRequestClose={() => {
@@ -13,29 +55,36 @@ function Modals(){
       }}>
       <View style={styles.modalLocation}>
         <View style={styles.container}>
-            <View style={styles.Textcontainer}>
-              {/*입력받는식으로 입력하는 예시도 2번째는 만약 "*"이 찍혀있으면 그 별은 빨간색으로 표시되게*/}
-              <Text style={styles.Bold25}>로그아웃하시겠습니까?</Text>
-              <Text style={styles.Medium15}>메인 화면에서 다시 로그인할 수 있습니다</Text>
-              {/**안의 Text값을 입력받게 입력받는 예시도 바로 아래에 있는 Text도 한몸 선택 안됐는데 확인버튼 누르면 Check box를 선택해주세요. 나옴 */}
-              <View style={styles.checkboxcontainer}>
-                <CheckBox
-                  value={a}
-                  onValueChange={b}
-                  tintColors={{ true: '#4F4F4F', false: '#4F4F4F'}}
-                  style={styles.check}
-                />
-                <Text style={styles.Medium18B}>탈퇴합니다</Text>
-              </View>
-              <Text style={styles.notcheck}>Check box를 선택해주세요.</Text>
+          <View style={styles.Textcontainer}>
+            <Text style={styles.Bold25}>{title}</Text>
+            {renderTextWithAsterisk(infoMessage)}
+          </View>
+
+          {(type === 'partyout' || type === 'out') && (
+            <View style={styles.checkboxcontainer}>
+              <CheckBox
+                value={a}
+                onValueChange={setA}
+                tintColors={{ true: '#4F4F4F', false: '#4F4F4F' }}
+                style={styles.check}
+              />
+              <Text style={styles.Medium18B}>탈퇴합니다</Text>
             </View>
-            {/** */}
+          )}
+
+          {(!a && (type === 'partyout' || type === 'out')) && (
+            <Text style={styles.notcheck}>Check box를 선택해주세요.</Text>
+          )}
+          {type === 'declaration' && (
             <TextInput
               style={styles.textArea}
               multiline={true}
               numberOfLines={12}
               placeholder=""
             />
+          )}
+
+          {(type === 'partymake' || type === 'partydelete') && (
             <View style={styles.partycontainer}>
               <View style={styles.partyInfo}>
                 <Text style={styles.Medium20}>파티 이름</Text>
@@ -50,21 +99,36 @@ function Modals(){
                 <Text style={styles.Medium20}>:</Text>
               </View>
               <View style={styles.partyInfo}>
-                <Text style={styles.Medium20}>이태윤님의 파티</Text>
-                <Text style={styles.Medium20}>2024.10.02</Text>
-                <Text style={styles.Medium20}>16:40 ~ 19:50</Text>
-                <Text style={styles.Medium20}>대전광역시 유성구</Text>
+                <Text style={styles.Medium20}>{partyName}님의 파티</Text>
+                <Text style={styles.Medium20}>{partyDate}</Text>
+                <Text style={styles.Medium20}>{startTime} ~ {endTime}</Text>
+                <Text style={styles.Medium20}>{location}</Text>
               </View>
             </View>
-            <View style={styles.ButtonContainer}>
-              <TouchableOpacity onPress={()=>setModalVisible(true)} style={styles.buttonW}><Text style={styles.Medium18B}>No, cancel</Text></TouchableOpacity>
-              <TouchableOpacity onPress={()=>setModalVisible(true)} style={styles.buttonB}><Text style={styles.Medium18W}>Yes, Confirm</Text></TouchableOpacity>
+          )}
+
+          {/* <View>
+            <Text style={styles.SemiBold10}>참여 중인 멤버</Text>
+            <View>
+              <View>
+                <Image source={require('../assets/Profile.png')} />
+              </View>
             </View>
+          </View> */}
+
+          <View style={styles.ButtonContainer}>
+            <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.buttonW}>
+              <Text style={styles.Medium18B}>No, cancel</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handleConfirm} style={styles.buttonB}>
+              <Text style={styles.Medium18W}>Yes, Confirm</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </Modal>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   modalLocation: {
@@ -88,12 +152,12 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   Textcontainer: {
-    gap: 6
+    gap: 6,
   },
   checkboxcontainer: {
     marginTop: 10,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   partycontainer: {
     flexDirection: "row",
@@ -128,10 +192,16 @@ const styles = StyleSheet.create({
     padding: 12,
     textAlignVertical: 'top',
   },
+  imagecontiner: {},
   Bold25: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#4F4F4F",
+  },
+  SemiBold10: {
+    fontSize: 10,
+    fontWeight: "semibold",
+    color: "#B7B7B7",
   },
   Medium15: {
     fontSize: 12,
@@ -151,7 +221,7 @@ const styles = StyleSheet.create({
   Medium20: {
     fontSize: 15,
     fontWeight: "medium",
-    color: "#4F4F4F"
+    color: "#4F4F4F",
   },
   notcheck: {
     fontSize: 10,
@@ -159,6 +229,6 @@ const styles = StyleSheet.create({
     fontWeight: "medium",
     marginTop: -10,
   }
-})
+});
 
 export default Modals;
