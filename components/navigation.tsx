@@ -56,7 +56,7 @@ function Navigation(): React.JSX.Element {
     : require("../assets/normal/setting_normal.png");
 
   return (
-    <SafeAreaView style={[backgroundStyle, styles.container]}>
+    <View style={[backgroundStyle, styles.container]}>
       <View style={[styles.footerContainer, footerContainerStyle]}>
         <TouchableOpacity onPress={() => setIsHomeClicked(!isHomeClicked)}>
           <Image source={homeImageSource} style={styles.normalImage} />
@@ -80,7 +80,7 @@ function Navigation(): React.JSX.Element {
           <Image source={settingImageSource} style={styles.normalImage} />
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
