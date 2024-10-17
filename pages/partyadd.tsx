@@ -70,19 +70,19 @@ function Partyadd(): React.JSX.Element {
         파티는 나와 함께할 사람을 모으는 공간입니다.{"\n"} 내 파티를 만들고
         대화를 시작해보세요.
       </Text>
-      <View style={styles.midMargin}></View>
+      <View style={styles.midMargin} />
       <View style={styles.inputBox}>
         <Text style={styles.inputText}>파티 이름</Text>
         <TextInput
           placeholder="파티 이름을 입력하세요"
           style={styles.inputStyle}
-        ></TextInput>
+        />
         <Text style={styles.inputText}>날짜</Text>
         <TextInput
           placeholder="2024.04.09"
           style={styles.inputStyle}
           keyboardType="numeric"
-        ></TextInput>
+        />
         <Text style={styles.inputText}>시간</Text>
         <View style={styles.timeContainer}>
           <TouchableOpacity onPress={showStartPicker} style={styles.timeView}>
@@ -103,11 +103,8 @@ function Partyadd(): React.JSX.Element {
         </View>
 
         <Text style={styles.inputText}>지역</Text>
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="지역을 입력하세요."
-        ></TextInput>
-        <View style={styles.bottonMargin}></View>
+        <TextInput style={styles.inputStyle} placeholder="지역을 입력하세요." />
+        <View style={styles.bottonMargin} />
         <TouchableOpacity style={styles.button}>
           <Text style={styles.buttonText}>파티 만들기</Text>
         </TouchableOpacity>
