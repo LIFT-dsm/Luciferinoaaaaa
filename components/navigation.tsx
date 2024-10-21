@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  SafeAreaView,
   StyleSheet,
   useColorScheme,
   View,
@@ -18,7 +17,6 @@ function Navigation(): React.JSX.Element {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
-    flex: 1,
   };
 
   const footerContainerStyle = {
@@ -86,7 +84,11 @@ function Navigation(): React.JSX.Element {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    height: 55,
+    backgroundColor: "#FFFFFF",
   },
   footerContainer: {
     width: "100%",
