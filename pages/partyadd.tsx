@@ -92,16 +92,13 @@ function Partyadd(): React.JSX.Element {
                 : "시작 시간"}
             </Text>
           </TouchableOpacity>
-
           <Text style={styles.timeMid}>~</Text>
-
           <TouchableOpacity onPress={showEndPicker} style={styles.timeView}>
             <Text>
               {partyTime.endTime ? formatTime(partyTime.endTime) : "종료 시간"}
             </Text>
           </TouchableOpacity>
         </View>
-
         <Text style={styles.inputText}>지역</Text>
         <TextInput style={styles.inputStyle} placeholder="지역을 입력하세요." />
         <View style={styles.bottonMargin} />
@@ -109,7 +106,6 @@ function Partyadd(): React.JSX.Element {
           <Text style={styles.buttonText}>파티 만들기</Text>
         </TouchableOpacity>
       </View>
-
       <DateTimePickerModal
         isVisible={isStartPickerVisible}
         mode="time"
@@ -117,7 +113,6 @@ function Partyadd(): React.JSX.Element {
         onCancel={hideStartPicker}
         locale="ko_KR"
       />
-
       <DateTimePickerModal
         isVisible={isEndPickerVisible}
         mode="time"

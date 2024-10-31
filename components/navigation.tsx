@@ -16,7 +16,7 @@ function Navigation(): React.JSX.Element {
   const [isSettingClicked, setISSettingClicked] = useState(false);
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? "#000000" : "#FFFFFF",
+    backgroundColor: isDarkMode ? "#000000" : "#ffffff",
   };
 
   const footerContainerStyle = {
@@ -88,7 +88,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     height: 55,
-    backgroundColor: "#FFFFFF",
     marginBottom: 22,
   },
   footerContainer: {

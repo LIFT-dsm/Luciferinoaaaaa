@@ -1,17 +1,12 @@
 import React from "react";
-import {
-  Image,
-  StyleSheet,
-  Text,
-  View
-} from "react-native";
+import { Image, SafeAreaView, StyleSheet, Text, View } from "react-native";
 
 import Input from "../components/Input";
 import Box from "../components/PartyBox";
 
 export function Main() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image
         source={require("../assets/WhiteCurver.png")}
         style={styles.cover}
@@ -26,7 +21,7 @@ export function Main() {
           style={styles.profileImage}
         />
       </View>
-      <Input/>
+      <Input />
       <View style={styles.boxMargin}>
         <Text style={styles.Bold}>Join Party List</Text>
         <Box />
@@ -34,7 +29,7 @@ export function Main() {
         <Box />
         <Box />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
